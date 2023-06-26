@@ -27,3 +27,25 @@ const getUsers = () => {
 }
 getUsers();
 // console.log(users)
+
+// Example getDrinkPrice('latte', 'large')
+const getDrinkPrice = (drink, size) => {
+    const selectedDrink = allPrices.filter(({ drink_name }) => drink_name === drink)
+    return selectedDrink[0].prices[size]
+}
+
+// Example userOrderTotal('coach', getDrinkPrice)
+const userOrderTotal = (userName, getDrinkPrice) => {
+    const selectedUser = allOrders.filter(({user}) => user === userName)
+    const total = selectedUser.reduce((acc, order) => acc + getDrinkPrice(order.drink, order.size), 0)
+    return total;
+}
+// console.log('coach order total', userOrderTotal('coach', getDrinkPrice))
+
+// Example userPaymentTotal('coach')
+const userPaymentTotal = (userName) => {
+    const selectedUser = allPayments.filter(({user}) => user === userName)
+    const total = selectedUser.reduce((acc, payment) => acc + payment.amount, 0)
+    return total
+}
+// console.log('coach payment total', userPaymentTotal('coach'))
