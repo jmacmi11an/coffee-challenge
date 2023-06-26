@@ -17,3 +17,13 @@ const paymentsBuffer = fs.readFileSync('./data/payments.json')
 const paymentsJSON = paymentsBuffer.toString()
 const allPayments = JSON.parse(paymentsJSON);
 // console.log(allPayments)
+
+let users = [];
+const getUsers = () => {
+    const allUsers = []
+    const userPayments = allPayments.map(({user}) => allUsers.push(user)) 
+    const userOrders = allOrders.map(({user}) => allUsers.push(user));
+    users = allUsers.filter((user, index) => allUsers.indexOf(user) === index)
+}
+getUsers();
+// console.log(users)
