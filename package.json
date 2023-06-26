@@ -1,0 +1,12 @@
+{
+  "name": "coffee-challenge",
+  "version": "1.0.0",
+  "description": "This task it to build an app to fetch and parse some data associated with a coffee shop.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
