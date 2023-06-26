@@ -1,0 +1,14 @@
+# require 'fs'
+- Make sure that I can read the parsed JSON file in the terminal. 
+- Compile a list of all the users
+- which set of data has a complete list of users? 
+    Can users have orders but no payments? 
+    Can users have payments but no orders?
+    When finding users, push only unique users into the array, rather than filtering at the end.
+- Write a function to get drink prices
+- Write a function to get user order totals
+- Write a funciton to get user payment totals
+- 
+- make sure to float the dollar amounts to 2 decimal places
+- separate different logic into different pages
+- npm init, add start command
