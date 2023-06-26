@@ -49,3 +49,14 @@ const userPaymentTotal = (userName) => {
     return total
 }
 // console.log('coach payment total', userPaymentTotal('coach'))
+
+const getUserBalance = (userName) => {
+    const userBalance = {
+        user: userName,
+        order_total: userOrderTotal(userName, getDrinkPrice),
+        payment_total: userPaymentTotal(userName),
+        balance: userOrderTotal(userName, getDrinkPrice) - userPaymentTotal(userName)
+    }
+    return userBalance
+}
+// console.log(getUserBalance('coach'))
