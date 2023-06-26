@@ -60,3 +60,9 @@ const getUserBalance = (userName) => {
     return userBalance
 }
 // console.log(getUserBalance('coach'))
+
+const allBalances = (users, getUserBalance) => {
+    return users.map((user) => getUserBalance(user))
+}
+
+console.log(allBalances(users, getUserBalance))
