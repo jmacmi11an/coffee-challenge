@@ -1,8 +1,8 @@
-# Coffee challenge
+# Coffee challenge
 
 To run enter "node index.js" in the terminal of the coffee-challenge directory. 
 
-## Chat GPT
+## Chat GPT
 
 After initially writing code so that I could parse the json files and output the desired array of user objects, I prompted Chat GPT to help me refactor my code for reusability, readability and performance. After generating several prompts I was reminded of the following. 
 
