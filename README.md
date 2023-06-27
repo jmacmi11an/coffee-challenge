@@ -1,57 +1,13 @@
 # Coffee challenge
 
-This task it to build an app to fetch and parse some data associated with a coffee shop.
+To run enter "node index.js" in the terminal of the coffee-challenge directory. 
 
-The app keeps track of coffee ordered, what the balance is for each user, what users have paid for already, and what is still owed.
+## Chat GPT
 
-A command line tool that simply logs output to the terminal is sufficient, however, you are welcome to build the app in whatever way you see fit.  You are welcome to use whatever language, packages, and frameworks that you like.
+After initially writing code so that I could parse the json files and output the desired array of user objects, I prompted Chat GPT to help me refactor my code for reusability, readability and performance. After generating several prompts I was reminded of the following. 
 
-## Data
-
-We've got the following data
-- `data/prices.json` - provided by our barista. Has details of what beverages are available, and what their prices are.
-- `data/orders.json` - list of beverages ordered by users of the app.
-- `data/payments.json` - list of payments made by users paying for items they have purchased.
-
-## Requirements
-
-- Load the list of prices
-
-- Load the orders
-
-- Calculate the total cost of each user's order
-
-- Load the payments
-
-- Calculate the total payment for each user
-
-- Calculate what each user now owes
-
-- Log the results to the command line (or display them in some UI if you would rather build something with a UI).  These results should take the form of an array of objects with the keys of: `user`, `order_total`, `payment_total`, and `balance`, for example:
-
-  ```
-  [
-    { "user": "coach",    "order_total": 5.00, "payment_total": 2.50, "balance": 2.50 },
-    { "user": "ellis",    "order_total": 6.15, "payment_total": 6.15, "balance": 0.00 },
-    { "user": "rochelle", "order_total": 6.90, "payment_total": 4.50, "balance": 2.40 },
-    { "user": "zoey",     "order_total": 2.30, "payment_total": 0.00, "balance": 2.30 }
-  ]
-  ```
-
-## Submitting The Test
-
-1. Ensure that everything you wish to submit is committed to the `master` branch
-1. In your project directory, run: `tar -czvf firstname_lastname.tar.gz` (where _firstname_ and _lastname_ are your names)
-1. Email the generated `.tar.gz` file back to the person that sent you the test.
-
-## What We Care About
-
-Here's what you should aim for with your code:
-- Clean, readable, production quality code; would we want to work with your code as part of a bigger codebase?
-- Solid testing approach
-- Use Git
-- Commit small changes often so we can see your approach, and progress.
-- Include the `.git` directory in the packaged .tar.gz file you send to us.
-- Include a README.md explaining how to run your code after it's extracted.
-- We haven't hidden any nasty tricks in the test. Don't overthink it. Just write nice, solid code.
-# coffee-challenge
+- Chat GPT makes mistakes. One of its first recommendations was to import something twice. It caused a crash and an error message that I quickly resolved. 
+- The advantages of node is that it is non-blocking. It is therefore faster to wrap fs.readFile in a Promise to handle file reading asynchronously.
+- I can use readFile instead of readFileSync. I don't need the json files read synchronously.
+- .find() is better than .filter() in the getDrinkPrice function because I only need the first matching value.
+- Any function dependencies should be included as arguments. This makes functions more versatile and bug proof.
