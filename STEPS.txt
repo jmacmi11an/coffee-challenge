@@ -8,7 +8,14 @@
 - Write a function to get drink prices
 - Write a function to get user order totals
 - Write a funciton to get user payment totals
-- 
-- make sure to float the dollar amounts to 2 decimal places
+- make sure to float the dollar amounts to 2 decimal places.
+    Do you want order_total, payment_total and balance to be Numbers?
 - separate different logic into different pages
 - npm init, add start command
+
+After using Chat GPT, prompting it to help me refactor my code I was reminded of the following:
+- Chat GPT makes mistakes. One of its first recommendations was to import something twice. It caused a crash and an error message that I quickly resolved. 
+- The advantages of node is that it is non-blocking. It is therefore faster to wrap fs.readFile in a Promise to handle file reading asynchronously.
+- I can use readFile instead of readFileSync. I don't need these json files read synchronously.
+- .find() is better than .filter() in the getDrinkPrice function because I only need the first matching value.
+- Any function dependencies should be included as arguments. This makes functions more versatile and bug proof.
