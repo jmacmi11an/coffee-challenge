@@ -5,15 +5,14 @@ const processData = async () => {
   const allOrders = await readJsonFile('./data/orders.json');
   const allPrices = await readJsonFile('./data/prices.json');
 
-  let users = [];
-  const getUsers = () => {
-    const allUsers = [...new Set([...allPayments.map(({ user }) => user), ...allOrders.map(({ user }) => user)])];
-    users = allUsers;
-  };
-  getUsers();
-
+  const users = [...new Set([...allPayments.map(({ user }) => user), ...allOrders.map(({ user }) => user)])];
+ 
   const balances = users.map((user) => getUserBalance(allOrders, allPayments, allPrices, user));
-  console.log(balances);
+  return balances
 };
 
-processData();
+processData().then((result) => {
+  console.log(result)
+}).catch((err) => {
+  console.error(err)
+});
